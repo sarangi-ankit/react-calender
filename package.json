@@ -6,10 +6,21 @@
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
+    "@syncfusion/ej2-buttons": "^19.2.46",
+    "@syncfusion/ej2-react-schedule": "19.2.46",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "@mui/styles": "^5.0.1",
+    "@mui/material": "^5.0.4",
+    "@mui/lab": "^5.0.0-alpha.51",
+    "@mui/icons-material": "^5.0.4",
+    "@emotion/styled": "^11.3.0",
+    "@emotion/react": "^11.4.1",
+    "@devexpress/dx-react-scheduler-material-ui": "3.0.0",
+    "@devexpress/dx-react-scheduler": "3.0.0",
+    "@devexpress/dx-react-core": "3.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
