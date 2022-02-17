@@ -15,24 +15,26 @@ const recurrenceAppointments = [
     startDate: new Date(2018, 5, 25, 9, 15),
     endDate: new Date(2018, 5, 25, 11, 30),
     id: 100,
-    rRule: "FREQ=DAILY;COUNT=3",
-    exDate: "20180628T063500Z,20180626T061500Z"
+    location:"Room 2",
+    
+    // exDate: "20180628T063500Z,20180626T061500Z"
   },
   {
     title: "Book Flights to San Fran for Sales Trip",
     startDate: new Date(2018, 5, 25, 12, 11),
     endDate: new Date(2018, 5, 25, 13, 0),
     id: 101,
-    rRule: "FREQ=DAILY;COUNT=4",
-    exDate: "20180627T091100Z",
-    allDay: true
+    location:"Room 2",
+    // exDate: "20180627T091100Z",
+    
   },
   {
     title: "Install New Router in Dev Room",
     startDate: new Date(2018, 5, 25, 13, 30),
     endDate: new Date(2018, 5, 25, 14, 35),
     id: 102,
-    rRule: "FREQ=DAILY;COUNT=5"
+    location:"Room 2",
+    allDay: true
   },
   {
     title: "Approve Personal Computer Upgrade Plan",
@@ -78,6 +80,7 @@ const recurrenceAppointments = [
   }
 ];
 const appointmentComponent = (props) => {
+  console.log(props.data)
   if (props.data) {
     return <Appointments.Appointment {...props} />;
   }
@@ -91,24 +94,22 @@ const appointmentComponent = (props) => {
 const Demo = () => {
   const [data, setData] = React.useState(recurrenceAppointments);
   const [currentDate, setCurrentDate] = React.useState(new Date("2018-06-27"));
+  
   const commitChanges = ({ added, changed, deleted }) => {
     setData((data) => {
       let newdata = [];
-      if (added) {
-        const startingAddedId =
-          data.length > 0 ? data[data.length - 1].id + 1 : 0;
-        newdata = [...data, { id: startingAddedId, ...added }];
-      }
+     
       if (changed) {
-        newdata = data.map((appointment) =>
+        newdata = data.map((appointment) =>(
+          
           changed[appointment.id]
             ? { ...appointment, ...changed[appointment.id] }
-            : appointment
+            : appointment)
         );
+        
       }
-      if (deleted !== undefined) {
-        newdata = data.filter((appointment) => appointment.id !== deleted);
-      }
+      
+     
       return newdata;
     });
   };
